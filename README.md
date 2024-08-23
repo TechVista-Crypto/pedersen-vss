@@ -49,3 +49,22 @@ javac -cp jpbc.jar PedersenVSS.java
 
 # Run the code
 java -cp .:jpbc.jar PedersenVSS
+```
+
+### Sample Output
+
+```bash
+Generator g in G1: [Some elliptic curve point g]
+Generator h in G1: [Some elliptic curve point h]
+Share Index: 1
+Value1 (f_x): ...
+Value2 (g_x): ...
+Commitment: [...]
+Validation Result: valid
+...
+Original Secret: [secret]
+Reconstructed Secret: [reconstructed secret]
+Secret reconstruction: success
+```
+
+ 
