@@ -67,4 +67,17 @@ Reconstructed Secret: [reconstructed secret]
 Secret reconstruction: success
 ```
 
- 
+## Implementation Details
+
+### 1. Sharing the Secret (`shareSecret`)
+
+The secret is distributed among `n` participants, with a minimum threshold of `t` participants required to reconstruct the secret. Each share contains:
+- An index (participant identifier),
+- The values \( f(x) \) and \( g(x) \) representing the shares,
+- A public commitment for verifiability.
+
+```java
+public List<Share> shareSecret(Element secret, int t, int n)
+```
+
+
