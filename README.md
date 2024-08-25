@@ -81,6 +81,6 @@ public List<Share> shareSecret(Element secret, int t, int n)
 ```
 
 -	secret: The secret to be shared (must be non-zero).
--	t: The minimum number of shares required to reconstruct the secret.
+-	't': The minimum number of shares required to reconstruct the secret.
 -	n: The total number of participants.
 -	Returns: A list of Share objects, each containing the values and commitments.
