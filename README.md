@@ -80,7 +80,43 @@ The secret is distributed among `n` participants, with a minimum threshold of `t
 public List<Share> shareSecret(Element secret, int t, int n)
 ```
 
--	secret: The secret to be shared (must be non-zero).
--	't': The minimum number of shares required to reconstruct the secret.
--	n: The total number of participants.
+-	**`secret`**: The secret to be shared (must be non-zero).
+-	**`t`**: The minimum number of shares required to reconstruct the secret.
+-	**`n`**: The total number of participants.
 -	Returns: A list of Share objects, each containing the values and commitments.
+
+### 2. Reconstructing the Secret (reconstruct)
+
+The secret is reconstructed using Lagrange interpolation based on the provided shares. At least t valid shares are required to successfully reconstruct the secret.
+
+```java
+public Element reconstruct(List<Share> shares, int t, int n)
+```
+
+- **`shares`**: A list of valid shares.
+- **`t`**: The threshold value representing the minimum number of shares required to reconstruct the secret.
+- **`n`**: The total number of participants.
+- Returns: The reconstructed secret.
+
+### 3. Verifying Shares (verifyShare)
+
+Each share can be verified against the public commitments without revealing the secret.
+
+```java
+public boolean verifyShare(Share share)
+```
+
+- **`share`**: The share to be verified.
+- Returns: true if the share is valid, otherwise false.
+
+### 4. Evaluation of Polynomials (evaluatePolynomial)
+
+The code uses Horner’s method to evaluate polynomials at specific points.
+
+```java
+private Element evaluatePolynomial(List<Element> coefficients, BigInteger x)
+```
+
+- **`coefficients`**: The list of polynomial coefficients.
+- **`x`**: The point at which the polynomial is evaluated.
+- Returns: The evaluated result as an Element.
